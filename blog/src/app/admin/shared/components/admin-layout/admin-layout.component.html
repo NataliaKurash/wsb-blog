@@ -1,0 +1,17 @@
+<nav class="navbar">
+    <a routerLink="/">Go to blog</a>
+    <ul *ngIf="authService.isAuthenticated()">
+        <li routerLinkActive="active">
+            <a [routerLink]="['/admin', 'dashboard']">Main</a>
+        </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/admin', 'create']">Create post</a>
+        </li>
+        <li>
+            <a href="#" (click)="logout($event)">Log out</a>
+        </li>
+    </ul>
+</nav>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

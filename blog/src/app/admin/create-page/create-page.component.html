@@ -1,0 +1,15 @@
+<form class="form" [formGroup]="addPost" (ngSubmit)="submitPost()">
+    <p>Create your post</p>
+    <div class="form-control">
+        <label for="email">Email</label>
+        <input type="text" formControlName="title">
+        <div class="has-error">
+            <small *ngIf="addPost.controls['title'].hasError('required')  && addPost.controls['title'].touched" >Field is required</small>
+        </div>
+    </div>
+    <div class="form-control">
+        <label for="">content post</label>
+        <quill-editor formControlName="text"></quill-editor>
+    </div>
+    <button type="submit" [disabled]="addPost.invalid">create post</button>
+</form>

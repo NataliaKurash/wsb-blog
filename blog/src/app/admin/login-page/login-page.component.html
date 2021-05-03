@@ -1,0 +1,28 @@
+<form  class="form" [formGroup]="loginForm" (ngSubmit)="submitValue()"
+[ngClass]="{'has-error':!loginForm.controls['email'].valid && loginForm.controls['password'].touched}"
+>
+<div class="alert alert-danger" *ngIf="authService.error$ | async as error">
+{{error}}
+</div>
+<div class="alert alert-danger" *ngIf="message">
+    {{message}}
+</div>
+    <p>Go to admin panel</p>
+    <div class="form-control">
+        <label for="email">Email</label>
+        <input type="email" name=""  formControlName="email">
+        <div class="has-error">
+        <small *ngIf="loginForm.controls['email'].hasError('required')  && loginForm.controls['email'].touched" >Field is required</small>
+        <small  *ngIf="loginForm.controls['email'].touched &&  loginForm.controls['email'].hasError('pattern')" >It must be email </small>
+    </div>
+    </div>
+    <div class="form-control">
+        <label for="password">Password</label>
+        <input type="password" name=""  formControlName="password">
+        <div >
+        <small class="has-error" *ngIf="loginForm.controls['password'].hasError('required')  && loginForm.controls['password'].touched" >Field is required</small>
+        <small class="has-error" *ngIf="loginForm.controls['password'].touched &&  loginForm.controls['password'].hasError('pattern')" >Password must be include min 6 symbol and one big word </small>
+    </div>
+    </div>
+    <button type="submit" [disabled]="loginForm.invalid || submitted">Log in</button>
+</form>
