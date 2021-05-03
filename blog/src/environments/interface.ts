@@ -1,6 +1,7 @@
 export interface Environment{
     apiKey: string,
-    production: boolean
+    production: boolean,
+    fbDBUrl: string
 }
 
 export interface FirebaseResponse{

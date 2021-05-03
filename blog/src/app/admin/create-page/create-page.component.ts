@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Post } from 'src/app/shared/components/interfaces';
+import { PostsService } from 'src/app/shared/components/posts.service';
 
 @Component({
   selector: 'wsb-create-page',
@@ -10,7 +11,7 @@ import { Post } from 'src/app/shared/components/interfaces';
 export class CreatePageComponent implements OnInit {
   addPost: FormGroup;
 
-  constructor() { }
+  constructor(private postsService: PostsService) { }
 
   ngOnInit(): void {
     this.addPost = new FormGroup({
@@ -29,6 +30,9 @@ export class CreatePageComponent implements OnInit {
       text: this.addPost.value.text,
       date: new Date()
     }
+    this.postsService.createPost(post).subscribe(()=>{
+      this.addPost.reset();
+    })
     console.log(post);
   }
 
