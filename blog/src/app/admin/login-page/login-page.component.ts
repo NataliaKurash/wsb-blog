@@ -27,6 +27,8 @@ export class LoginPageComponent implements OnInit {
     this.routerActiv.queryParams.subscribe((params: Params) => {
       if (params['loginAgain']) {
         this.message = 'Please enter data'
+      }else if(params['authFailed']){
+        this.message = 'Session is finish, please log in'
       }
     })
     this.loginForm = new FormGroup({

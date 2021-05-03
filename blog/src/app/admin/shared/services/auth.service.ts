@@ -6,7 +6,7 @@ import { Observable, Subject, throwError } from "rxjs";
 import { environment } from "src/environments/environment";
 import { FirebaseResponse } from "src/environments/interface";
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 
 export class AuthService {
     public error$: Subject<string> = new Subject<string>();
