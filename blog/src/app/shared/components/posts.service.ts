@@ -34,4 +34,8 @@ export class PostsService {
                 }))
             }))
     }
+
+    public removerPost(id: string): Observable<void>{
+return this.httpClient.delete<void>(`${environment.fbDBUrl}/posts/${id}.json`)
+    }
 }
