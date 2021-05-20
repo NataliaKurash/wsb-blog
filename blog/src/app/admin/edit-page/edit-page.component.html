@@ -1,1 +1,19 @@
-<p>edit-page works!</p>
+<div *ngIf="formEidt; else loading">
+    <form [formGroup]="formEidt" (ngSubmit)="submit">
+        <div class="form-control">
+            <label for="email">Title</label>
+            <input type="text" formControlName="title">
+            <div class="has-error">
+                <small *ngIf="formEidt.controls['title'].hasError('required')  && formEidt.controls['title'].touched" >Field is required</small>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="">content post</label>
+            <quill-editor formControlName="text"></quill-editor>
+        </div>
+        <button type="submit" [disabled]="formEidt.invalid || submited">save post</button>
+    </form>
+</div>
+<ng-template #loading>
+    <p>Wait</p>
+</ng-template>

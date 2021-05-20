@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { SharedModule } from "../shared/components/shared.module";
 import { AuthGuard } from "./shared/services/auth.guard";
 import { SearchPipe } from "../shared/search.pipe";
+import { AlertComponent } from './shared/components/alert/alert.component';
+import { AlertService } from "./shared/services/alert.service";
 
 @NgModule({
     declarations: [
@@ -19,6 +21,7 @@ import { SearchPipe } from "../shared/search.pipe";
         CreatePageComponent,
         EditPageComponent,
         SearchPipe,
+        AlertComponent,
     ],
 
     imports: [
@@ -38,7 +41,7 @@ import { SearchPipe } from "../shared/search.pipe";
             }
         ])],
     exports: [RouterModule],
-    providers: [AuthGuard]
+    providers: [AuthGuard, AlertService]
 })
 export class AdminModule {
 

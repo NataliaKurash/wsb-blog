@@ -38,4 +38,20 @@ export class PostsService {
     public removerPost(id: string): Observable<void>{
 return this.httpClient.delete<void>(`${environment.fbDBUrl}/posts/${id}.json`)
     }
+
+    public getById(id: string): Observable<Post>{
+        return this.httpClient.get<Post>(`${environment.fbDBUrl}/posts/${id}.json`)
+        .pipe(map((post: Post) => {
+            const newPost: Post = {
+                ...post,
+                id,
+                date: new Date(post.date)
+            }
+            return newPost
+        }))
+    }
+
+    public update(post: Post): Observable<Post>{
+        return this.httpClient.patch<Post>(`${environment.fbDBUrl}/posts/${post.id}.json`, post)
+    }
 }
