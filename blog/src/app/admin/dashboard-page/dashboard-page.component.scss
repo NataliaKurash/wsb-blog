@@ -1,0 +1,33 @@
+input{
+    width: 100%;
+    height: 45px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+.container{
+    width: 90vw;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    th{
+        text-align: start;
+    }
+    tbody > tr{
+        padding: 12px;
+        background: #ffffff0f;
+        border-radius: 25px;
+    }
+}
+.small-button{
+    width: calc(50% - 4px);
+    background-image: linear-gradient(to right top, #d3cce3, #d9d2e6, #ded8e9, #e4deed, #e9e4f0);
+    border: 1px solid white;
+    border-radius: 4px;
+    margin-left: 4px;
+    height: 30px;
+    &:hover{
+        cursor: pointer;
+        background-image: linear-gradient(to right bottom, #d3cce3, #d9d2e6, #ded8e9, #e4deed, #e9e4f0);
+    }
+}

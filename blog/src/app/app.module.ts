@@ -12,6 +12,7 @@ import { AuthInterceptor } from './shared/components/auth.interceptor';
 import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
 import { PostComponent } from './shared/components/post/post.component';
 import { SharedModule } from './shared/components/shared.module';
+import { Decode64Pipe } from './shared/decode64.pipe';
 
 registerLocaleData(ukLocale, 'uk');
 
@@ -27,6 +28,7 @@ const INTERCEPTOR_PROVIDERS: Provider ={
     HomePageComponent,
     PostPageComponent,
     PostComponent,
+    Decode64Pipe,
   ],
   imports: [
     BrowserModule,

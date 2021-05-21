@@ -1,9 +1,9 @@
-<div *ngIf="posts$ | async as posts; else loading" class="posts-container">
-   <wsb-post 
+<ul *ngIf="posts$ | async as posts; else loading" id="hexGrid" class="posts-container">
+   <wsb-post class="hex"
    *ngFor="let post of posts" 
    [post]="post"
   ></wsb-post>
-</div>
+</ul>
 <ng-template #loading>
    <p>Wait</p>
 </ng-template>

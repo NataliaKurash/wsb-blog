@@ -7,7 +7,6 @@
 <div class="alert alert-danger" *ngIf="message">
     {{message}}
 </div>
-    <p>Go to admin panel</p>
     <div class="form-control">
         <label for="email">Email</label>
         <input type="email" name=""  formControlName="email">
@@ -24,5 +23,5 @@
         <small class="has-error" *ngIf="loginForm.controls['password'].touched &&  loginForm.controls['password'].hasError('pattern')" >Password must be include min 6 symbol and one big word </small>
     </div>
     </div>
-    <button type="submit" [disabled]="loginForm.invalid || submitted">Log in</button>
+    <button type="submit" class="button-primary" [disabled]="loginForm.invalid || submitted">Log in</button>
 </form>

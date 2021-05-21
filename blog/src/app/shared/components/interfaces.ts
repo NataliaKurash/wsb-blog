@@ -9,7 +9,8 @@ export interface Post{
     title: string,
     text: string,
     author?: string,
-    date: Date
+    date: Date,
+    image?: any
 }
 
 export interface FbCreateResponse{

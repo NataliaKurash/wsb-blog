@@ -1,15 +1,14 @@
-<div *ngIf="posts.length; else loading">
+<div *ngIf="posts.length; else loading" class="container">
     <div class="form-control">
         <input type="text" placeholder="Find post" [(ngModel)]="searchPost">
     </div>
     <table>
         <thead>
             <tr>
-                <th>#</th>
-                <th>Author</th>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Action</th>
+                <th width="10%">#</th>
+                <th width="40%">Title</th>
+                <th width="20%">Date</th>
+                <th width="30%"></th>
             </tr>
         </thead>
         <tbody>
@@ -18,9 +17,9 @@
                 <td>{{post.title}}</td>
                 <td>{{post.date | date: 'medium':null:'uk' }}</td>
                 <td>
-                    <button [routerLink]="['/admin', 'post', post.id, 'edit']">Edit</button>
+                    <button class="small-button" [routerLink]="['/admin', 'post', post.id, 'edit']">Edit</button>
                     <!-- <button (click)="editPost(post.id)">Edit</button> -->
-                    <button (click)="removePost(post.id)">Remove</button>
+                    <button class="small-button" (click)="removePost(post.id)">Remove</button>
                 </td>
             </tr>
         </tbody>
