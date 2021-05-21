@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PostPageComponent } from 'src/app/post-page/post-page.component';
-import { Post } from './post';
+import { Post } from '../interfaces';
+
 
 @Component({
   selector: 'wsb-post',
@@ -8,6 +9,7 @@ import { Post } from './post';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
+  @Input() post: Post; 
 
   constructor() { }
   

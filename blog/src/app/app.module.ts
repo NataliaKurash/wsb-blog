@@ -1,3 +1,5 @@
+import { registerLocaleData } from '@angular/common';
+import ukLocale from '@angular/common/locales/uk';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,6 +12,8 @@ import { AuthInterceptor } from './shared/components/auth.interceptor';
 import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
 import { PostComponent } from './shared/components/post/post.component';
 import { SharedModule } from './shared/components/shared.module';
+
+registerLocaleData(ukLocale, 'uk');
 
 const INTERCEPTOR_PROVIDERS: Provider ={
   provide: HTTP_INTERCEPTORS,

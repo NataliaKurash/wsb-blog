@@ -1,6 +1,6 @@
 <div class="card" style="width: 18rem; margin: 1em">
-    <p>title</p>
-    <p>author</p>
-    <p>data</p>
-    <a [routerLink]="['/post',12]" class="btn btn-primary">Read more</a>
+    <p>{{post.title}}</p>
+    <p>{{post.author}}</p>
+    <p>{{post.date | date:'dd.MM.yyyy'}}</p>
+    <a [routerLink]="['/post',post.id]" class="btn btn-primary">Read more</a>
 </div>
