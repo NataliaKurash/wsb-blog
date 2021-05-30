@@ -33,7 +33,6 @@ export class AuthService {
 
     public logout() {
         this.setToken(null);
-
     }
 
     private handleError(error: HttpErrorResponse) {

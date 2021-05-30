@@ -11,9 +11,9 @@
             <label for="">content post</label>
             <quill-editor formControlName="text"></quill-editor>
         </div>
-        <button type="submit" [disabled]="formEidt.invalid || submited">save post</button>
+        <button type="submit" [disabled]="formEidt.invalid || submited" class="small-button" (click)="submit()">save post</button>
     </form>
 </div>
 <ng-template #loading>
-    <p>Wait</p>
+  <wsb-loading></wsb-loading>
 </ng-template>

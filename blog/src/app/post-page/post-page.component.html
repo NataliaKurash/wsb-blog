@@ -1,8 +1,9 @@
-<div *ngIf="post$ | async as post; else loading">
+<div *ngIf="post$ | async as post; else loading" class="container">
     <div class="post">
         <div class="header">
+            <img [src]="'data:image/jpg;base64,'+post.image" alt="" />
             <h1>{{post.title}}</h1>
-            <button class="btn btn-link" routerLink="/">go to main</button>
+            <button class="small-button" routerLink="/">go to main</button>
         </div>
         <div class="info"><strong>{{post.author}}</strong><small>{{post.date | date:'dd.MM.yyyy'}}</small></div>
         <div class="content">
@@ -11,5 +12,5 @@
     </div>
 </div>
 <ng-template #loading>
-    <p>Wait</p>
+ <wsb-loading></wsb-loading>
 </ng-template>

@@ -12,6 +12,7 @@ import { AuthGuard } from "./shared/services/auth.guard";
 import { SearchPipe } from "../shared/search.pipe";
 import { AlertComponent } from './shared/components/alert/alert.component';
 import { AlertService } from "./shared/services/alert.service";
+import { LoadingComponent } from "./shared/components/loading/loading.component";
 
 @NgModule({
     declarations: [

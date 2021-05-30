@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -11,7 +11,7 @@ import { PostsService } from '../shared/components/posts.service';
   styleUrls: ['./post-page.component.scss']
 })
 export class PostPageComponent implements OnInit {
-  post$: Observable<Post>
+  post$: Observable<Post>;
 
   constructor(
     public route: ActivatedRoute,

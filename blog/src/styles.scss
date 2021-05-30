@@ -8,12 +8,13 @@
     padding: 0;
 }
 body{
-   
+    font-family: 'Cormorant Garamond', serif;
     background-attachment: fixed;
-    background-image: linear-gradient(to left bottom, #0f0c29, #131433, #19193e, #1f1e49, #262454, #282656, #2a2858, #2c2a5a, #2a2953, #28274c, #262645, #24243e);
+    background-image: linear-gradient(to bottom, #232526, #2a2c2d, #323435, #393b3d, #414345);
 }
-.container{
+.container-main{
     color: white;
+    width: calc(100vw - 300px);
 }
 .form-control{
     display: flex;
@@ -44,6 +45,13 @@ body{
     }
 }
 
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+  justify-content: center;
+}
 
 #hexGrid {
     display: flex;
@@ -81,7 +89,8 @@ body{
   .hexIn * {
     position: absolute;
     visibility: visible;
-    outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+    outline: 1px dashed #f8f8f2;
+/* fix for jagged edges in FF on hover transition */
   }
   .hexLink {
       display:block;
@@ -153,6 +162,7 @@ body{
   
   /*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
   @media (min-width:1201px) { /* <- 5-4  hexagons per row */
+  
     #hexGrid{
       padding-bottom: 4.4%
     }
@@ -165,6 +175,9 @@ body{
   }
   
   @media (max-width: 1200px) and (min-width:901px) { /* <- 4-3  hexagons per row */
+    .container-main{
+      width: auto;
+    }
     #hexGrid{
       padding-bottom: 5.5%
     }
@@ -177,6 +190,9 @@ body{
   }
   
   @media (max-width: 900px) and (min-width:601px) { /* <- 3-2  hexagons per row */
+    .container{
+      width: auto;
+    }
     #hexGrid{
       padding-bottom: 7.4%
     }
@@ -189,6 +205,9 @@ body{
   }
   
   @media (max-width: 600px) { /* <- 2-1  hexagons per row */
+    .container{
+      width: auto;
+    }
     #hexGrid{
       padding-bottom: 11.2%
     }
@@ -201,7 +220,25 @@ body{
   }
   
   @media (max-width: 400px) {
+    .container{
+      width: auto;
+    }
       #hexGrid {
           font-size: 13px;
       }
   }
+  //
+  
+
+.small-button{
+  width: calc(50% - 4px);
+  background-image: linear-gradient(to right top, #d3cce3, #d9d2e6, #ded8e9, #e4deed, #e9e4f0);
+  border: 1px solid white;
+  border-radius: 4px;
+  margin-left: 4px;
+  height: 30px;
+  &:hover{
+      cursor: pointer;
+      background-image: linear-gradient(to right bottom, #d3cce3, #d9d2e6, #ded8e9, #e4deed, #e9e4f0);
+  }
+}

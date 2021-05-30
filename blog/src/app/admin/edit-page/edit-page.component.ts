@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Post } from 'src/app/shared/components/interfaces';
@@ -22,7 +22,8 @@ export class EditPageComponent implements OnInit, OnDestroy {
   constructor(
     private routerActiv: ActivatedRoute,
     private postService: PostsService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private router: Router,
   ) { }
   ngOnDestroy(): void {
    if(this.updateSubscription){
@@ -54,6 +55,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
     }).subscribe(() => {
       this.submited = false;
       this.alertService.success('Post have been edited');
+      this.router.navigate(['/admin', 'dashboard']);
     })
   }
 }

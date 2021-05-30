@@ -1,6 +1,7 @@
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { QuillModule } from "ngx-quill";
+import { LoadingComponent } from "src/app/admin/shared/components/loading/loading.component";
 
 @NgModule({
     imports: [
@@ -10,6 +11,6 @@ import { QuillModule } from "ngx-quill";
         HttpClientModule,
         QuillModule]
 })
-export class SharedModule{
-    
+export class SharedModule {
+
 }
