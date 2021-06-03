@@ -60,7 +60,33 @@ body{
         cursor: none;
     }
 }
-
+.chips{
+  border: none;
+  padding: 4px;
+  border-radius: 4px;
+  color: white;
+  margin-right: 4px;
+  cursor: pointer;
+  &.none{
+      background-color: black;
+  }
+  &.love{
+      background-color: $secondary;
+  }
+  &.philosophy{
+      background-color: $tertiary;
+  }
+  &.journey{
+      background-color: $primary;
+  }
+  &:hover{
+      color: black;
+      background-color: lighten($color: white, $amount: 2);
+  }
+  &:focus{
+      border: 1px solid inset white;
+  }
+}
 button[disabled]:hover {
   background: gray;
 

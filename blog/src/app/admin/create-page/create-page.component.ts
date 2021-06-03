@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FilterService } from 'src/app/shared/components/filter.service';
 import { Post } from 'src/app/shared/components/interfaces';
 import { Tag, Tags } from 'src/app/shared/components/post/post';
 import { PostsService } from 'src/app/shared/components/posts.service';
@@ -13,17 +14,15 @@ import { AlertService } from '../shared/services/alert.service';
 export class CreatePageComponent implements OnInit {
   addPost: FormGroup;
   base64textString;
-  categories: Tag[] = [
-    { title: Tags.Journey },
-    { title: Tags.Love},
-    { title: Tags.Philosophy},
-    { title: Tags.None }
-  ];
+
   fillCategories: Tag[] = [];
   public category: Tag;
 
-  constructor(private postsService: PostsService,
-    private alertService: AlertService) { }
+  constructor(
+    private postsService: PostsService,
+    private alertService: AlertService,
+    public filterService: FilterService
+  ) { }
 
   ngOnInit(): void {
     this.addPost = new FormGroup({
@@ -68,9 +67,6 @@ export class CreatePageComponent implements OnInit {
   }
 
   addFilter(category: Tag) {
-this.fillCategories.push(category);
-    // this.filteredItems = this.items.filter((item: Item) => {
-    //   return item.categories.includes(category.id);
-    // })
+    this.fillCategories.push(category);
   }
 }

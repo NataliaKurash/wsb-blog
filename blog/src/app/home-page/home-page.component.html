@@ -1,7 +1,8 @@
 <div class="page-content">
   <ul *ngIf="posts$ | async as posts; else loading" id="hexGrid" class="posts-container">
-     <wsb-post class="hex"
-     *ngFor="let post of posts" 
+     <wsb-post 
+     class="hex"
+     *ngFor="let post of filterService.searchFilter(posts)" 
      [post]="post"
     ></wsb-post>
   </ul>

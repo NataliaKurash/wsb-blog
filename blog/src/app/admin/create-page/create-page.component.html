@@ -12,7 +12,7 @@
         <input type="file" (change)="handleFileSelect($event)" accept=".png, .jpg, .jpeg" />
     </div>
     <div class="form-control" style="flex-direction: row;">
-        <div *ngFor="let category of categories" >
+        <div *ngFor="let category of filterService.categories" >
             <button type="button" (click)="addFilter(category)" class="chips"  [ngClass] ="{'love':  category.title == 'love', 'philosophy': category.title == 'philosophy', 'journey': category.title ==  'journey', 'none': category.title == 'none'}" >{{ category.title }}</button>
         </div>
     </div>

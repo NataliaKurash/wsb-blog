@@ -8,12 +8,13 @@ import { LoadingComponent } from "src/app/admin/shared/components/loading/loadin
         HttpClientModule,
         QuillModule.forRoot()],
     declarations: [
-        LoadingComponent
+        LoadingComponent, 
+        
     ],
     exports: [
         HttpClientModule,
         LoadingComponent,
-        QuillModule]
+        QuillModule],
 })
 export class SharedModule {
 

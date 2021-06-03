@@ -13,9 +13,7 @@ import { MainLayoutComponent } from './shared/components/main-layout/main-layout
 import { PostComponent } from './shared/components/post/post.component';
 import { SharedModule } from './shared/components/shared.module';
 import { Decode64Pipe } from './shared/decode64.pipe';
-import { LoadingComponent } from './admin/shared/components/loading/loading.component';
 import { AdminModule } from './admin/admin.module';
-
 
 registerLocaleData(ukLocale, 'uk');
 
@@ -38,7 +36,7 @@ const INTERCEPTOR_PROVIDERS: Provider ={
     BrowserModule,
     AppRoutingModule,
     AdminModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [INTERCEPTOR_PROVIDERS],
   bootstrap: [AppComponent]

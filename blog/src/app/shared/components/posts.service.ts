@@ -8,9 +8,7 @@ import { Tags } from "./post/post";
 
 @Injectable({ providedIn: 'root' })
 export class PostsService {
-    constructor(private httpClient: HttpClient) {
-
-    }
+    constructor(private httpClient: HttpClient) {}
 
     public createPost(post: Post): Observable<Post> {
         return this.httpClient.post(`${environment.fbDBUrl}/posts.json`, post)
@@ -28,31 +26,31 @@ export class PostsService {
         return this.httpClient.get(`${environment.fbDBUrl}/posts.json`)
             .pipe(map((response: { [key: string]: any }) => {
                 return Object.keys(response)
-                .map(key=>({
-                    ...response[key],
-                    id: key,
-                    date: new Date(response[key].date)
-                }))
+                    .map(key => ({
+                        ...response[key],
+                        id: key,
+                        date: new Date(response[key].date)
+                    }))
             }))
     }
 
-    public removerPost(id: string): Observable<void>{
-return this.httpClient.delete<void>(`${environment.fbDBUrl}/posts/${id}.json`)
+    public removerPost(id: string): Observable<void> {
+        return this.httpClient.delete<void>(`${environment.fbDBUrl}/posts/${id}.json`)
     }
 
-    public getById(id: string): Observable<Post>{
+    public getById(id: string): Observable<Post> {
         return this.httpClient.get<Post>(`${environment.fbDBUrl}/posts/${id}.json`)
-        .pipe(map((post: Post) => {
-            const newPost: Post = {
-                ...post,
-                id,
-                date: new Date(post.date)
-            }
-            return newPost
-        }))
+            .pipe(map((post: Post) => {
+                const newPost: Post = {
+                    ...post,
+                    id,
+                    date: new Date(post.date)
+                }
+                return newPost
+            }))
     }
 
-    public update(post: Post): Observable<Post>{
+    public update(post: Post): Observable<Post> {
         return this.httpClient.patch<Post>(`${environment.fbDBUrl}/posts/${post.id}.json`, post)
     }
 }
