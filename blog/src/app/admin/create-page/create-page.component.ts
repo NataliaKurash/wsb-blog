@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Post } from 'src/app/shared/components/interfaces';
+import { Tag, Tags } from 'src/app/shared/components/post/post';
 import { PostsService } from 'src/app/shared/components/posts.service';
 import { AlertService } from '../shared/services/alert.service';
 
@@ -12,6 +13,12 @@ import { AlertService } from '../shared/services/alert.service';
 export class CreatePageComponent implements OnInit {
   addPost: FormGroup;
   base64textString;
+  categories: Tag[] = [
+    { title: Tags.Journey },
+    { title: Tags.Love },
+    { title: Tags.Philosophy }
+  ];
+  public category: Tag;
 
   constructor(private postsService: PostsService,
     private alertService: AlertService) { }
@@ -32,8 +39,10 @@ export class CreatePageComponent implements OnInit {
       title: this.addPost.value.title,
       text: this.addPost.value.text,
       date: new Date(),
-      image: this.base64textString
+      image: this.base64textString,
+      tags: this.category
     }
+
     this.postsService.createPost(post).subscribe(() => {
       this.addPost.reset();
       this.alertService.success('Post have been created')
@@ -44,19 +53,24 @@ export class CreatePageComponent implements OnInit {
   handleFileSelect(evt) {
     var files = evt.target.files;
     var file = files[0];
-
     if (files && file) {
       var reader = new FileReader();
-
-      reader.onload = this._handleReaderLoaded.bind(this);
-
+      reader.onload = this.handleReaderLoaded.bind(this);
       reader.readAsBinaryString(file);
     }
   }
 
-  _handleReaderLoaded(readerEvt) {
+  public handleReaderLoaded(readerEvt) {
     var binaryString = readerEvt.target.result;
     this.base64textString = btoa(binaryString);
-    // console.log(btoa(binaryString));
+  }
+
+  addFilter(category: Tag) {
+    console.log(category)
+    this.category = category;
+
+    // this.filteredItems = this.items.filter((item: Item) => {
+    //   return item.categories.includes(category.id);
+    // })
   }
 }

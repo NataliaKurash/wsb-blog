@@ -1,14 +1,15 @@
-<div *ngIf="post$ | async as post; else loading" class="container">
+<div *ngIf="post$ | async as post; else loading" >
     <div class="post">
-        <div class="header">
-            <img [src]="'data:image/jpg;base64,'+post.image" alt="" />
-            <h1>{{post.title}}</h1>
-            <button class="small-button" routerLink="/">go to main</button>
+        <div class="container-img">
+            <img [src]="'data:image/jpg;base64,'+post.image" alt="" style="width: 100%; position: relative; height: 120vh; object-fit: cover;" />
         </div>
-        <div class="info"><strong>{{post.author}}</strong><small>{{post.date | date:'dd.MM.yyyy'}}</small></div>
-        <div class="content">
-            <quill-view-html [content]="post.text"></quill-view-html>
-           </div>
+        <h1 class="title">{{post.title}}</h1>
+        <div class="wrapper-content">
+            <div class="info"><strong>{{post.author}}</strong><small>{{post.date | date:'dd.MM.yyyy'}}</small></div>
+            <div class="content">
+                <quill-view-html [content]="post.text"></quill-view-html>
+            </div>
+        </div>
     </div>
 </div>
 <ng-template #loading>

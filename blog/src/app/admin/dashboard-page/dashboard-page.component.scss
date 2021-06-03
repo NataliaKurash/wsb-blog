@@ -9,6 +9,7 @@ input{
 }
 table{
     width: 100%;
+    color: white;
     border-collapse: collapse;
     th{
         text-align: start;
@@ -18,4 +19,12 @@ table{
         background: #ffffff0f;
         border-radius: 25px;
     }
+}
+.form-control{
+    width: 100%;
+}
+.line-clamp{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }

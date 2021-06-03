@@ -31,7 +31,6 @@ const INTERCEPTOR_PROVIDERS: Provider ={
     HomePageComponent,
     PostPageComponent,
     PostComponent,
-    LoadingComponent,
     Decode64Pipe,
     
   ],

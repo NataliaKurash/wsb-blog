@@ -9,7 +9,7 @@
 </div>
     <div class="form-control">
         <label for="email">Email</label>
-        <input type="email" name=""  formControlName="email">
+        <input type="email" name=""  formControlName="email" autofocus>
         <div class="has-error">
         <small *ngIf="loginForm.controls['email'].hasError('required')  && loginForm.controls['email'].touched" >Field is required</small>
         <small  *ngIf="loginForm.controls['email'].touched &&  loginForm.controls['email'].hasError('pattern')" >It must be email </small>
@@ -25,3 +25,6 @@
     </div>
     <button type="submit" class="button-primary" [disabled]="loginForm.invalid || submitted">Log in</button>
 </form>
+<div class="decoration">
+    <img src="../../../assets/img/Writing-bio.svg" alt="">
+</div>

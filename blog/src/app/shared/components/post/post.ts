@@ -4,10 +4,13 @@ export interface Post{
     data: string,
     image: string,
     author: string,
-    tags: Tags[],
+    tags: Tags,
     description: string
 }
-
+export interface Tag{
+    id?: number,
+    title?: Tags
+}
 export enum Tags{
     Philosophy = 'philosophy',
     Love = 'love',

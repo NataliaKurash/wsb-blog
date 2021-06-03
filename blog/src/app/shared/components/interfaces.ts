@@ -1,3 +1,5 @@
+import { Tag } from "./post/post";
+
 export interface User{
     email: string,
     password: string,
@@ -10,7 +12,8 @@ export interface Post{
     text: string,
     author?: string,
     date: Date,
-    image?: any
+    image?: any,
+    tags: Tag,
 }
 
 export interface FbCreateResponse{

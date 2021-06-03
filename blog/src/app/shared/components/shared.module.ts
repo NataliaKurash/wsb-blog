@@ -7,8 +7,12 @@ import { LoadingComponent } from "src/app/admin/shared/components/loading/loadin
     imports: [
         HttpClientModule,
         QuillModule.forRoot()],
+    declarations: [
+        LoadingComponent
+    ],
     exports: [
         HttpClientModule,
+        LoadingComponent,
         QuillModule]
 })
 export class SharedModule {

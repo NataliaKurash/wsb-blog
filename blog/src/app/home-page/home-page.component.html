@@ -1,9 +1,12 @@
-<ul *ngIf="posts$ | async as posts; else loading" id="hexGrid" class="posts-container">
-   <wsb-post class="hex"
-   *ngFor="let post of posts" 
-   [post]="post"
-  ></wsb-post>
-</ul>
-<ng-template #loading>
+<div class="page-content">
+  <ul *ngIf="posts$ | async as posts; else loading" id="hexGrid" class="posts-container">
+     <wsb-post class="hex"
+     *ngFor="let post of posts" 
+     [post]="post"
+    ></wsb-post>
+  </ul>
+</div>
+<img src="../../../../assets/img/Plants.svg" class="decoration" alt=""> 
+<ng-template #loading class="center">
 <wsb-loading></wsb-loading>
 </ng-template>

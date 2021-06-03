@@ -1,5 +1,6 @@
+@import '../../../variables.scss';
 .has-error{
-    color: red;
+    color: $secondary;
 }
 .form{
     display: flex;

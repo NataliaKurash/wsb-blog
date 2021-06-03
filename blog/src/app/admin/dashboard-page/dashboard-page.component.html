@@ -1,29 +1,33 @@
-<div *ngIf="posts.length; else loading" class="container">
-    <div class="form-control">
-        <input type="text" placeholder="Find post" [(ngModel)]="searchPost">
+<div class="page-content">
+    <div *ngIf="posts.length; else loading" class="container">
+        <div class="form-control">
+            <input type="text" placeholder="Find post" [(ngModel)]="searchPost" autofocus>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th width="10%">Category</th>
+                    <th width="40%">Title</th>
+                    <th width="20%">Date</th>
+                    <th width="30%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let post of posts | searchPosts:searchPost; let index = index ">
+                    <td *ngFor="let tags of post.tags">{{tags}}</td>
+                    <td class="line-clamp">{{post.title}}</td>
+                    <td>{{post.date | date: 'medium':null:'uk' }}</td>
+                    <td>
+                        <button class="small-button" [routerLink]="['/admin', 'post', post.id, 'edit']">Edit</button>
+                        <button class="small-button" (click)="removePost(post.id)">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <table>
-        <thead>
-            <tr>
-                <th width="10%">#</th>
-                <th width="40%">Title</th>
-                <th width="20%">Date</th>
-                <th width="30%"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let post of posts | searchPosts:searchPost; let index = index ">
-                <td>{{index+1}}</td>
-                <td>{{post.title}}</td>
-                <td>{{post.date | date: 'medium':null:'uk' }}</td>
-                <td>
-                    <button class="small-button" [routerLink]="['/admin', 'post', post.id, 'edit']">Edit</button>
-                    <!-- <button (click)="editPost(post.id)">Edit</button> -->
-                    <button class="small-button" (click)="removePost(post.id)">Remove</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+</div>
+<div class="decoration">
+    <img src="../../../assets/img/Big-pencil.svg" alt="">
 </div>
 <ng-template #loading>
   <wsb-loading></wsb-loading>

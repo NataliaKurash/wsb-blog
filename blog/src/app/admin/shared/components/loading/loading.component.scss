@@ -1,3 +1,9 @@
+@import '../../../../../variables.scss';
+.container{
+  display: grid;
+  place-items: center;
+  place-self: center;
+}
 .solar-system {
     width: 250px;
     height: 250px;
@@ -11,7 +17,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 1px solid #fafbfC;
+      border: 1px solid #a0a5aa;
       border-radius: 50%;
   } 
   
@@ -39,14 +45,14 @@
     width: 10px;
     height: 10px;
       border-radius: 50%;
-    background-color: #3ff9dc;
+    background-color: $primary;
   }
   
   .sun {
       width: 35px;
       height: 35px;
       border-radius: 50%;
-      background-color: #ffab91;
+      background-color: $tertiary;
   }
   
   .leo {
@@ -100,7 +106,7 @@
   .three-quarter-spinner {
     width: 50px;
     height: 50px;
-    border: 3px solid #fb5b53;
+    border: 3px solid $secondary;
     border-top: 3px solid transparent;
     border-radius: 50%;
     animation: spin .5s linear 0s infinite;

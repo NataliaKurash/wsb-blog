@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { of, Subscription } from 'rxjs';
 import { Post } from 'src/app/shared/components/interfaces';
+import { Tag, Tags } from 'src/app/shared/components/post/post';
 import { PostsService } from 'src/app/shared/components/posts.service';
 import { AlertService } from '../shared/services/alert.service';
 
@@ -11,6 +12,7 @@ import { AlertService } from '../shared/services/alert.service';
 })
 export class DashboardPageComponent implements OnInit, OnDestroy {
   public posts: Post[] = [];
+  public tags;
   public postSubscription: Subscription;
   public deleatePostSubscription: Subscription;
   public searchPost: string = '';
@@ -32,11 +34,10 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.postSubscription = this.postsService.getPosts().subscribe(posts => {
       this.posts = posts;
+      this.posts.filter(i =>{
+        this.tags = i.tags;
+      })
     })
-  }
-
-  public editPost(id: string) {
-
   }
 
   public removePost(id: string) {

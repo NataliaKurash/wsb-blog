@@ -1,9 +1,17 @@
+@import '../../../../variables.scss';
 .brand{
-    font-size: 2em;
-    color: white;
+    font-size: 3em;
     font-style: italic;
     text-align: start;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    &::first-letter{
+        color: $primary;
+    }
 }
 .navbar{
-    margin: 25px 42px;
+    margin: 5vh 5vw;
+    display: flex;
+    justify-content: end;
+    align-items: center;
 }

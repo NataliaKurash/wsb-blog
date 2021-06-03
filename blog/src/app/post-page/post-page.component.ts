@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -12,7 +12,6 @@ import { PostsService } from '../shared/components/posts.service';
 })
 export class PostPageComponent implements OnInit {
   post$: Observable<Post>;
-
   constructor(
     public route: ActivatedRoute,
     public postsService: PostsService
@@ -23,5 +22,6 @@ export class PostPageComponent implements OnInit {
       return this.postsService.getById(params['id'])
     }))
   }
+
 
 }
