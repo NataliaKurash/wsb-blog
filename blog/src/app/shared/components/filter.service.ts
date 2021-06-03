@@ -12,6 +12,7 @@ export class FilterService {
     ];
     public category;
     public filteredItems: Post[] = [];
+    public newArray: Post[] = []
 
     public filterPost(category: Tag) {
         this.category = category.title;
@@ -24,11 +25,13 @@ export class FilterService {
         this.filteredItems = posts;
         console.log(this.filteredItems);
         this.filteredItems.filter((item: Post) => {
-            item.tags.filter((tag: Tag) => {
-                return tag.title.includes(this.category);
+            item.tags.find((tag: Tag) => {
+                if (tag.title.includes(this.category)) {
+                    this.newArray.push(item);
+                }
             })
         });
-        console.log(this.filteredItems);
-        return this.filteredItems;
+        console.log(this.newArray);
+        return this.newArray;
     }
 }
