@@ -1,6 +1,6 @@
 <div class="page-content">
 <p class="title-container">Create your post</p>
-<form class="form" [formGroup]="addPost" (ngSubmit)="submitPost()">
+<form class="form" [formGroup]="addPost" >
     <div class="form-control">
         <label for="title">Dodaj tytul do postu</label>
         <input type="text" formControlName="title" autofocus>
@@ -20,7 +20,7 @@
         <label for="">Zawartość postu</label>
         <quill-editor formControlName="text"></quill-editor>
     </div>
-    <button type="submit" class="button-primary" [disabled]="addPost.invalid">create post</button>
+    <button type="button" class="button-primary" [disabled]="addPost.invalid" (click)=submitPost()>create post</button>
 </form>
 </div>
     

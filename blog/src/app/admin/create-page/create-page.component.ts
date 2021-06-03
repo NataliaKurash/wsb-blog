@@ -19,6 +19,7 @@ export class CreatePageComponent implements OnInit {
     { title: Tags.Philosophy},
     { title: Tags.None }
   ];
+  fillCategories: Tag[] = [];
   public category: Tag;
 
   constructor(private postsService: PostsService,
@@ -41,7 +42,7 @@ export class CreatePageComponent implements OnInit {
       text: this.addPost.value.text,
       date: new Date(),
       image: this.base64textString,
-      tag: this.category
+      tags: this.fillCategories
     }
 
     this.postsService.createPost(post).subscribe(() => {
@@ -67,10 +68,7 @@ export class CreatePageComponent implements OnInit {
   }
 
   addFilter(category: Tag) {
-    console.log(category)
-    this.category = category;
-
-
+this.fillCategories.push(category);
     // this.filteredItems = this.items.filter((item: Item) => {
     //   return item.categories.includes(category.id);
     // })

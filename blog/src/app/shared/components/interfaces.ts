@@ -13,7 +13,7 @@ export interface Post{
     author?: string,
     date: Date,
     image?: any,
-    tag: Tag,
+    tags: Tag[],
 }
 
 export interface FbCreateResponse{
