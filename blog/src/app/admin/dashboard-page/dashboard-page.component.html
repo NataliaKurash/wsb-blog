@@ -14,8 +14,8 @@
             </thead>
             <tbody>
                 <tr *ngFor="let post of posts | searchPosts:searchPost; let index = index ">
-                    <td *ngFor="let tags of post.tags">{{tags}}</td>
-                    <td class="line-clamp">{{post.title}}</td>
+                    <td >{{post.tag.title }}</td>
+                    <td >{{post.title}}</td>
                     <td>{{post.date | date: 'medium':null:'uk' }}</td>
                     <td>
                         <button class="small-button" [routerLink]="['/admin', 'post', post.id, 'edit']">Edit</button>

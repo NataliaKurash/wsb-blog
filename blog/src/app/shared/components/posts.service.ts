@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
 import { FbCreateResponse, Post } from "./interfaces";
+import { Tags } from "./post/post";
 
 @Injectable({ providedIn: 'root' })
 export class PostsService {

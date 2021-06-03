@@ -15,8 +15,9 @@ export class CreatePageComponent implements OnInit {
   base64textString;
   categories: Tag[] = [
     { title: Tags.Journey },
-    { title: Tags.Love },
-    { title: Tags.Philosophy }
+    { title: Tags.Love},
+    { title: Tags.Philosophy},
+    { title: Tags.None }
   ];
   public category: Tag;
 
@@ -26,7 +27,7 @@ export class CreatePageComponent implements OnInit {
   ngOnInit(): void {
     this.addPost = new FormGroup({
       title: new FormControl(null, Validators.required),
-      text: new FormControl(null, Validators.required)
+      text: new FormControl(null, Validators.required),
     })
 
   }
@@ -40,7 +41,7 @@ export class CreatePageComponent implements OnInit {
       text: this.addPost.value.text,
       date: new Date(),
       image: this.base64textString,
-      tags: this.category
+      tag: this.category
     }
 
     this.postsService.createPost(post).subscribe(() => {
@@ -68,6 +69,7 @@ export class CreatePageComponent implements OnInit {
   addFilter(category: Tag) {
     console.log(category)
     this.category = category;
+
 
     // this.filteredItems = this.items.filter((item: Item) => {
     //   return item.categories.includes(category.id);

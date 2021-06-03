@@ -5,7 +5,8 @@
         </div>
         <h1 class="title">{{post.title}}</h1>
         <div class="wrapper-content">
-            <div class="info"><strong>{{post.author}}</strong><small>{{post.date | date:'dd.MM.yyyy'}}</small></div>
+            <div class="info"><strong>{{post.tag.title}}</strong><small>{{post.date | date:'dd.MM.yyyy'}}</small></div>
+
             <div class="content">
                 <quill-view-html [content]="post.text"></quill-view-html>
             </div>
