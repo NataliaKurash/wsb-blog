@@ -8,30 +8,32 @@ export class FilterService {
         { title: Tags.Journey },
         { title: Tags.Love },
         { title: Tags.Philosophy },
-        { title: Tags.None }
+        { title: Tags.All }
     ];
     public category;
     public filteredItems: Post[] = [];
-    public newArray: Post[] = []
+    
 
     public filterPost(category: Tag) {
         this.category = category.title;
     }
 
-    public searchFilter(posts: Post[]) {
+    public searchFilter(posts: Post[], category?: Tag) {
+        let newArray: Post[] = [];
+        console.log(newArray);
+        category = this.category;
         if (this.category == undefined) {
             return posts;
         }
         this.filteredItems = posts;
-        console.log(this.filteredItems);
-        this.filteredItems.filter((item: Post) => {
-            item.tags.find((tag: Tag) => {
-                if (tag.title.includes(this.category)) {
-                    this.newArray.push(item);
-                }
+        this.filteredItems.filter((post: Post)=>{
+            post.tags.filter((tag: Tag)=>{
+            if(tag.title.includes(this.category)){
+                newArray.push(post)
+            }
             })
-        });
-        console.log(this.newArray);
-        return this.newArray;
+        })
+        console.log(newArray)
+        return newArray;
     }
 }

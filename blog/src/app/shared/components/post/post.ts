@@ -3,7 +3,7 @@ export interface Tag{
     title?: Tags,
 }
 export enum Tags{
-    None = 'none',
+    All = 'all',
     Philosophy = 'philosophy',
     Love = 'love',
     Journey = 'journey'
