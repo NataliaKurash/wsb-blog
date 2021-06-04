@@ -10,30 +10,25 @@ export class FilterService {
         { title: Tags.Philosophy },
         { title: Tags.All }
     ];
-    public category;
-    public filteredItems: Post[] = [];
+    public category: Tags;
     
-
     public filterPost(category: Tag) {
         this.category = category.title;
     }
 
-    public searchFilter(posts: Post[], category?: Tag) {
-        let newArray: Post[] = [];
-        console.log(newArray);
-        category = this.category;
-        if (this.category == undefined) {
+    public filterPostsByTag(posts: Post[]): Post[] {
+        if (this.category == undefined || this.category == Tags.All) {
             return posts;
         }
-        this.filteredItems = posts;
-        this.filteredItems.filter((post: Post)=>{
+
+        let filteredPosts: Post[] = [];
+        posts.filter((post: Post)=>{
             post.tags.filter((tag: Tag)=>{
             if(tag.title.includes(this.category)){
-                newArray.push(post)
+                filteredPosts.push(post);
             }
-            })
-        })
-        console.log(newArray)
-        return newArray;
+            });
+        });
+        return filteredPosts;
     }
 }

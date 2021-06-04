@@ -8,7 +8,7 @@ import { Tags } from "./post/post";
 
 @Injectable({ providedIn: 'root' })
 export class PostsService {
-    constructor(private httpClient: HttpClient) {}
+    constructor(private httpClient: HttpClient) { }
 
     public createPost(post: Post): Observable<Post> {
         return this.httpClient.post(`${environment.fbDBUrl}/posts.json`, post)
