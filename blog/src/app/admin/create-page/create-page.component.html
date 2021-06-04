@@ -16,7 +16,7 @@
             <button type="button" (click)="addFilter(category)" class="chips"  [ngClass] ="{'love':  category.title == 'love', 'philosophy': category.title == 'philosophy', 'journey': category.title ==  'journey', 'none': category.title == 'all'}" >{{ category.title }}</button>
         </div>
     </div>
-    <div class="form-control" style="width: calc(90vw - 40px)">
+    <div class="form-control">
         <label for="">Zawartość postu</label>
         <quill-editor formControlName="text"></quill-editor>
     </div>

@@ -12,6 +12,18 @@
 .navbar{
     margin: 5vh 5vw;
     display: flex;
-    justify-content: end;
-    align-items: center;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.filter-container{
+    display: flex;
+}
+
+@media (max-width: 425px){
+    .navbar{
+        align-items: flex-end;
+    }
+    .filter-container{
+        flex-direction: column;
+    }
 }

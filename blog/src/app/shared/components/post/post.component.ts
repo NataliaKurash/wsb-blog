@@ -8,11 +8,26 @@ import { Post } from '../interfaces';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  @Input() post: Post; 
+  @Input() post: Post;
+
+  formatedTitle: string;
 
   constructor() { }
-  
+
   ngOnInit(): void {
+    this.cutTitle();
+  }
+
+  public cutTitle() {
+    let formatedTitle = this.post.title.toLowerCase();
+    let firstLetter = formatedTitle.charAt(0).toUpperCase();
+    this.formatedTitle = firstLetter + formatedTitle.slice(1);
+    if (this.formatedTitle.length >= 15) {
+      this.formatedTitle.slice(0, 15) + '...';
+    } else if (this.formatedTitle.length <= 10) {
+      this.formatedTitle.toUpperCase();
+    }
+//TODO
   }
 
 }

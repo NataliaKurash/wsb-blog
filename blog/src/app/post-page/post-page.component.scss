@@ -41,6 +41,8 @@
     margin-right: 10vw;
     margin-left: 10vw;
     .info{
-        align-self: flex-end;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
     }
 }
