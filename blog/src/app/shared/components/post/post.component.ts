@@ -23,11 +23,8 @@ export class PostComponent implements OnInit {
     let firstLetter = formatedTitle.charAt(0).toUpperCase();
     this.formatedTitle = firstLetter + formatedTitle.slice(1);
     if (this.formatedTitle.length >= 15) {
-      this.formatedTitle.slice(0, 15) + '...';
-    } else if (this.formatedTitle.length <= 10) {
-      this.formatedTitle.toUpperCase();
+      this.formatedTitle =  this.formatedTitle.slice(0, 25) + '...';
     }
-//TODO
   }
 
 }

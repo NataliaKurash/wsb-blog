@@ -318,6 +318,9 @@ button[disabled]:hover {
   }
   
   @media (max-width: 400px) {
+    .form-control{
+      width: 280px;
+    }
     .container-main{
       width: auto;
     }
@@ -327,9 +330,7 @@ button[disabled]:hover {
       #hexGrid {
           font-size: 13px;
       }
-  }
-  //
-  
+  }  
 
 .small-button{
   width: calc(50% - 4px);

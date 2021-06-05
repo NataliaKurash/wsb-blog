@@ -10,9 +10,8 @@ export class AuthInterceptor implements HttpInterceptor {
     constructor(
         private authService: AuthService,
         private router: Router,
-    ) {
-
-    }
+    ) {}
+    
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if (this.authService.isAuthenticated()) {
             req = req.clone({
@@ -23,7 +22,6 @@ export class AuthInterceptor implements HttpInterceptor {
         }
         return next.handle(req)
             .pipe(catchError((error: HttpErrorResponse) => {
-                console.log('[Interceptor Error', error)
                 if(error.status === 401){
                     this.authService.logout();
                     this.router.navigate(['/admin', 'login'], {

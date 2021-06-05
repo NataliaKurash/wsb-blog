@@ -3,8 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { User } from 'src/app/shared/components/interfaces';
 import { AuthService } from '../shared/services/auth.service';
-const emailRegex: any = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
-const passRegex: any = '^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$';
+const emailRegex: string = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
+const passRegex: string = '^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$';
 
 @Component({
   selector: 'wsb-login-page',
@@ -27,13 +27,13 @@ export class LoginPageComponent implements OnInit {
     this.routerActiv.queryParams.subscribe((params: Params) => {
       if (params['loginAgain']) {
         this.message = 'Please enter data'
-      }else if(params['authFailed']){
+      } else if (params['authFailed']) {
         this.message = 'Session is finish, please log in'
       }
     })
     this.loginForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.pattern(emailRegex)]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(6)])
+      password: new FormControl(null, [Validators.required, Validators.pattern(passRegex)])
     });
   }
 
@@ -54,9 +54,5 @@ export class LoginPageComponent implements OnInit {
     }, () => {
       this.submitted = false;
     })
-
-
   }
-
 }
-// , Validators.pattern(passRegex)

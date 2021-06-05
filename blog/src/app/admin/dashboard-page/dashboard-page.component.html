@@ -15,11 +15,12 @@
             <tbody>
                 <tr *ngFor="let post of posts | searchPosts:searchPost">
                     <td>
-                        <span *ngFor="let tags of post.tags">
-                            {{tags.title}}
+                        <span *ngFor="let tags of post.tags | slice:0:1; let last=last; let index">
+                            <span>{{tags.title}}</span>
+                            <span *ngIf="last">, {{post.tags.length}}</span>
                         </span>
                     </td>
-                    <td >{{post.title}}</td>
+                    <td>{{post.title}}</td>
                     <td>{{post.date | date: 'medium':null:'uk' }}</td>
                     <td>
                         <button class="small-button" [routerLink]="['/admin', 'post', post.id, 'edit']">Edit</button>
@@ -34,5 +35,5 @@
     <img src="../../../assets/img/Big-pencil.svg" alt="">
 </div>
 <ng-template #loading>
-  <wsb-loading></wsb-loading>
+    <wsb-loading></wsb-loading>
 </ng-template>

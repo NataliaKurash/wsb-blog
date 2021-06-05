@@ -12,8 +12,8 @@ import { AlertService } from '../shared/services/alert.service';
   templateUrl: './edit-page.component.html',
   styleUrls: ['./edit-page.component.scss']
 })
-export class EditPageComponent implements OnInit, OnDestroy {
 
+export class EditPageComponent implements OnInit, OnDestroy {
   formEidt: FormGroup;
   post: Post;
   submited: boolean = false;
@@ -25,10 +25,11 @@ export class EditPageComponent implements OnInit, OnDestroy {
     private alertService: AlertService,
     private router: Router,
   ) { }
+
   ngOnDestroy(): void {
-   if(this.updateSubscription){
-     this.updateSubscription.unsubscribe();
-   }
+    if (this.updateSubscription) {
+      this.updateSubscription.unsubscribe();
+    }
   }
 
   ngOnInit(): void {

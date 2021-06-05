@@ -10,7 +10,7 @@ import { PostsService } from '../shared/components/posts.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-  public posts$:Observable<Post[]>
+  public posts$: Observable<Post[]>
 
   constructor(
     private postsService: PostsService,
@@ -20,6 +20,4 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.posts$ = this.postsService.getPosts()
   }
-
-
 }

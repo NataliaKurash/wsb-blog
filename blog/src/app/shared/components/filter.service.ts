@@ -4,14 +4,14 @@ import { Tag, Tags } from "./post/post";
 
 @Injectable({ providedIn: 'root' })
 export class FilterService {
+    public category: Tags;
     public categories: Tag[] = [
         { title: Tags.Journey },
         { title: Tags.Love },
         { title: Tags.Philosophy },
         { title: Tags.All }
     ];
-    public category: Tags;
-    
+
     public filterPost(category: Tag) {
         this.category = category.title;
     }
@@ -22,11 +22,11 @@ export class FilterService {
         }
 
         let filteredPosts: Post[] = [];
-        posts.filter((post: Post)=>{
-            post.tags.filter((tag: Tag)=>{
-            if(tag.title.includes(this.category)){
-                filteredPosts.push(post);
-            }
+        posts.filter((post: Post) => {
+            post.tags.filter((tag: Tag) => {
+                if (tag.title.includes(this.category)) {
+                    filteredPosts.push(post);
+                }
             });
         });
         return filteredPosts;

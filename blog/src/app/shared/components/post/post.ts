@@ -8,5 +8,3 @@ export enum Tags{
     Love = 'love',
     Journey = 'journey'
 }
-
-    

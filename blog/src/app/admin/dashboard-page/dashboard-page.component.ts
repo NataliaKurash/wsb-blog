@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { of, Subscription } from 'rxjs';
+import { FilterService } from 'src/app/shared/components/filter.service';
 import { Post } from 'src/app/shared/components/interfaces';
 import { Tag, Tags } from 'src/app/shared/components/post/post';
 import { PostsService } from 'src/app/shared/components/posts.service';
@@ -19,6 +20,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private postsService: PostsService,
+    public filterService: FilterService,
     private alertService: AlertService
   ) { }
 
@@ -26,7 +28,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     if (this.postSubscription) {
       this.postSubscription.unsubscribe();
     }
-    if(this.deleatePostSubscription){
+    if (this.deleatePostSubscription) {
       this.deleatePostSubscription.unsubscribe();
     }
   }
@@ -38,7 +40,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   }
 
   public removePost(id: string) {
-   this.deleatePostSubscription =  this.postsService.removerPost(id).subscribe(() => {
+    this.deleatePostSubscription = this.postsService.removerPost(id).subscribe(() => {
       this.posts = this.posts.filter(post => post.id !== id);
       this.alertService.danger('Post have been deleted')
     });

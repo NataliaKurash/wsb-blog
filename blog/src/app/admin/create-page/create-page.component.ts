@@ -29,13 +29,13 @@ export class CreatePageComponent implements OnInit {
       title: new FormControl(null, Validators.required),
       text: new FormControl(null, Validators.required),
     })
-
   }
 
   public submitPost() {
     if (this.addPost.invalid) {
       return
     }
+    
     const post: Post = {
       title: this.addPost.value.title,
       text: this.addPost.value.text,
@@ -48,7 +48,6 @@ export class CreatePageComponent implements OnInit {
       this.addPost.reset();
       this.alertService.success('Post have been created')
     })
-    console.log(post);
   }
 
   handleFileSelect(evt) {

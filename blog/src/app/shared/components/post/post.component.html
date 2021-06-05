@@ -1,8 +1,8 @@
 <li>
     <div class="hexIn">
         <a class="hexLink" [routerLink]="['/post',post.id]" >
-            <img [src]="'data:image/jpg;base64,'+post.image" alt=""  style="width: 100%;"/>
-            <h1>{{formatedTitle}} ... </h1>
+            <img [src]="'data:image/jpg;base64,'+post.image" alt="{{post.title}}"  style="width: 100%;"/>
+            <h1>{{formatedTitle}}</h1>
             <p>{{post.date | date:'dd.MM.yyyy'}}</p>
         </a>
     </div>

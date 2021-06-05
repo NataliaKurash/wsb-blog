@@ -1,6 +1,6 @@
 <div class="navbar">
     <p class="brand hover-underline-animation" routerLink="/" >Pustoy stakan</p>
-    <div class="filter-container">
+    <div class="filter-container" *ngIf="mainPage">
         <div *ngFor="let category of filterService.categories" >
             <button type="button" (click)="filterService.filterPost(category)" class="chips"  [ngClass] ="{'love':  category.title == 'love', 'philosophy': category.title == 'philosophy', 'journey': category.title ==  'journey', 'none': category.title == 'all'}" >{{ category.title }}</button>
         </div>

@@ -1,27 +1,33 @@
 <div class="page-content">
-<p class="title-container">Create your post</p>
-<form class="form" [formGroup]="addPost" >
-    <div class="form-control">
-        <label for="title">Dodaj tytul do postu</label>
-        <input type="text" formControlName="title" autofocus>
-        <div class="has-error">
-            <small *ngIf="addPost.controls['title'].hasError('required')  && addPost.controls['title'].touched" >Field is required</small>
+    <p class="title-container">Create your post</p>
+    <form class="form" [formGroup]="addPost">
+        <div class="form-control">
+            <label for="title">Dodaj tytul do postu</label>
+            <input type="text" formControlName="title" autofocus>
+            <div class="has-error">
+                <small
+                    *ngIf="addPost.controls['title'].hasError('required')  && addPost.controls['title'].touched">
+                    Field is required
+                </small>
+            </div>
         </div>
-    </div>
-    <div class="form-control">
-        <input type="file" (change)="handleFileSelect($event)" accept=".png, .jpg, .jpeg" />
-    </div>
-    <div class="form-control" style="flex-direction: row;">
-        <div *ngFor="let category of filterService.categories" >
-            <button type="button" (click)="addFilter(category)" class="chips"  [ngClass] ="{'love':  category.title == 'love', 'philosophy': category.title == 'philosophy', 'journey': category.title ==  'journey', 'none': category.title == 'all'}" >{{ category.title }}</button>
+        <div class="form-control">
+            <input type="file" (change)="handleFileSelect($event)" accept=".png, .jpg, .jpeg" />
         </div>
-    </div>
-    <div class="form-control">
-        <label for="">Zawartość postu</label>
-        <quill-editor formControlName="text"></quill-editor>
-    </div>
-    <button type="button" class="button-primary" [disabled]="addPost.invalid" (click)=submitPost()>create post</button>
-</form>
+        <div class="form-control" style="flex-direction: row;">
+            <div *ngFor="let category of filterService.categories">
+                <button type="button" (click)="addFilter(category)" class="chips"
+                    [ngClass]="{'love':  category.title == 'love', 'philosophy': category.title == 'philosophy', 'journey': category.title ==  'journey', 'none': category.title == 'all'}">{{
+                    category.title }}</button>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="">Zawartość postu</label>
+            <quill-editor formControlName="text"></quill-editor>
+        </div>
+        <button type="button" class="button-primary" [disabled]="addPost.invalid" (click)=submitPost()>create
+            post</button>
+    </form>
 </div>
-    
+
 <div class="decoration"><img src="../../../assets/img/Post-comment.svg" alt=""></div>
