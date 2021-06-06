@@ -22,6 +22,4 @@ export class PostPageComponent implements OnInit {
       return this.postsService.getById(params['id'])
     }))
   }
-
-
 }

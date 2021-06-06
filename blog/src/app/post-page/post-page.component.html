@@ -1,4 +1,4 @@
-<div *ngIf="post$ | async as post; else loading" >
+<div *ngIf="post$ | async as post; else loading">
     <div class="post">
         <div class="container-img">
             <img [src]="'data:image/jpg;base64,'+post.image" alt="" style="width: 100%; position: relative; height: 120vh; object-fit: cover;" />
@@ -14,6 +14,7 @@
             </div>
         </div>
     </div>
+    <app-scroll-top></app-scroll-top>
 </div>
 <ng-template #loading>
  <wsb-loading></wsb-loading>
