@@ -9,6 +9,7 @@ import { Post } from '../interfaces';
 })
 export class PostComponent implements OnInit {
   @Input() post: Post;
+  public counter;
 
   formatedTitle: string;
 
@@ -16,6 +17,7 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
     this.cutTitle();
+    this.timeToReed();
   }
 
   public cutTitle() {
@@ -27,4 +29,18 @@ export class PostComponent implements OnInit {
     }
   }
 
+  public timeToReed() {
+    let post = this.post.text;
+    let  cleanText = post.replace(/<\/?[^>]+(>|$)/g, "");
+    let words = cleanText.length;
+    console.log(cleanText);
+    console.log(words);
+    if (words < 250) {
+        this.counter = '1 хвилина'
+    }else if(words < 900){
+        this.counter = `${(words / 180).toPrecision(2)} хвилини`
+    }else{
+        this.counter = `${(words / 180).toPrecision(2)} хвилин`
+    }
+}
 }
