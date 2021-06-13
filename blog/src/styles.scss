@@ -344,3 +344,11 @@ button[disabled]:hover {
       background-image: linear-gradient(to right bottom, #d3cce3, #d9d2e6, #ded8e9, #e4deed, #e9e4f0);
   }
 }
+
+.ql-container.ql-snow {
+  height: auto;
+}
+.ql-editor {
+  height: 150px;
+  overflow-y: scroll;
+}
