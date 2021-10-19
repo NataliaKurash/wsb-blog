@@ -1,17 +1,18 @@
 @import '../../../../../variables.scss';
 .alert-wrap{
     position: fixed;
-   margin-right: auto;
-   margin-left: auto;
+    left: 50%;
+    transform: translateX(-50%);
     max-width: 200px;
     min-width: 200px;
-    padding: 20px;
-    border-radius: 4px;
-    background: #ffffff0f;
 }
 .alert-success{
+    border-radius: 4px;
+    padding: 10px;
     background-color: $primary;
 }
 .alert-danger{
+    border-radius: 4px;
+    padding: 10px;
     background-color: $secondary;
 }

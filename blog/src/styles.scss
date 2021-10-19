@@ -212,7 +212,9 @@ button[disabled]:hover {
             transform:translate3d(0,100%,0);
   }
   
-  
+  .has-error{
+    color: $secondary;
+}
   /*** HOVER EFFECT  **********************************************************************/
   .hexLink:hover h1, .hexLink:focus h1,
   .hexLink:hover p, .hexLink:focus p{

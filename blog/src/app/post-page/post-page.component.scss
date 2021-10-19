@@ -46,3 +46,9 @@
         width: 100%;
     }
 }
+
+@media(max-width: 525px){
+    .title{
+        font-size: 2em;
+    }
+}

@@ -55,7 +55,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
       title: this.formEidt.value.title
     }).subscribe(() => {
       this.submited = false;
-      this.alertService.success('Post have been edited');
+      this.alertService.success('Post has been edited');
       this.router.navigate(['/admin', 'dashboard']);
     })
   }
